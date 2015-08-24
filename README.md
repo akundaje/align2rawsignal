@@ -60,8 +60,8 @@ align2rawsignal/
   * hg18: http://hgdownload.cse.ucsc.edu/goldenPath/hg18/bigZips/chromFa.zip
   * encodeHg19Female: http://hgdownload-test.cse.ucsc.edu/goldenPath/hg19/encodeDCC/referenceSequences/femaleByChrom/ (*.gz files)
   * encodeHg19Male: http://hgdownload-test.cse.ucsc.edu/goldenPath/hg19/encodeDCC/referenceSequences/maleByChrom/ (*.gz files)
-  * NOTE: Remove the _random*.fa and other contig files
-  * NOTE: If you are working with a female genome, delete or move the chrY.fa file out of the directory pointed to by --seq-dir
+  * **NOTE:** Remove the _random*.fa and other contig files
+  * **NOTE:** If you are working with a female genome, delete or move the chrY.fa file out of the directory pointed to by --seq-dir
 3. A directory containing the global uniqueness/mappability map for a range of kmer lengths e.g. umap/encodeHg19Female/globalmap_k20tok54/
   * There should be one file per chromosome in this directory chr*.uint8.unique.
   * NOTE: The mappability file name prefix for each chromosome MUST correspond to the prefix of the sequence file for chromosome e.g. chr1.fa <=> chr1.uint8.unique
@@ -70,7 +70,7 @@ align2rawsignal/
   * The mappability tracks currently support reads upto 54 bp for most organisms. I will be upgrading these to support upto 300 bp reads by Dec 2013.
 
 ## Installation Instructions
-*NOTE:* These are installation/running instructions for 64-bit LINUX distributions. If you need executables for other platforms please contact Anshul (anshul_at_kundaje_dot_net)
+**NOTE:** These are installation/running instructions for 64-bit LINUX distributions. If you need executables for other platforms please contact Anshul (anshul_at_kundaje_dot_net)
 
 ### 1. MCR Installation
 In order to run the align2rawsignal code and/or any MATLAB compiled code, you will need the MATLAB runtime library. Please only use the MCR version referenced in this README. This version of the executable was compiled using MCR V7.14 which is equivalent to R2010b release. You can download the MCR here http://www.broadinstitute.org/~anshul/softwareRepo/MCR2010b.bin
@@ -83,13 +83,14 @@ If you need to specify a specific temp directory then also use the option `-is:t
 
 The installer will prompt you to select the directory (<MCR_ROOT>) you want to install the MCR into. e.g. `/home/akundaje/software/mcroot`
 
-*NOTE:* Make sure your installation directory has write permissions and has atleast 500 MB of disk space.
+**NOTE:** Make sure your installation directory has write permissions and has atleast 500 MB of disk space.
 
 The installation should go smoothly with the above command. However, if you are interested in other installation options you can consult http://www.mathworks.com/access/helpdesk/help/toolbox/compiler/bru23df-1.html
 
-*NOTE:* You need to install the MCR ONLY once on the machine/cluster you plan to run MATLAB compiled code.
+**NOTE:** You need to install the MCR ONLY once on the machine/cluster you plan to run MATLAB compiled code.
 
 If you want to uninstall the MCR , follow this procedure:
+
 1. Navigate to your MCR installation directory using the cd command.
 2. `cd` into the `_uninst` directory
 3. Run the `uninstaller.bin` program.
@@ -101,6 +102,7 @@ You need to set the following environment variables for the compiled MATLAB code
 You can add the following lines to your `.bashrc` or `.cshrc` file if you want to avoid settings these variables everytime you want to run the code
 
 If you are using the bash shell or modifying .bashrc then use
+
 ```
 MCRROOT=<MCR_ROOT>/v714
 LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${MCRROOT}/runtime/glnxa64
@@ -157,12 +159,8 @@ align2rawsignal # call align2rawsignal
   `#!/bin/bash`
   * Make sure all the MCR environment variables have been explicity set in your submit script (See above.)
   * You can prevent bottlenecking by also defining the following environment variable
-`export MCR_CACHE_ROOT=$TMPDIR   # If $TMPDIR is defined`
-
-OR
-
-`export MCR_CACHE_ROOT=<ValidTmpDir> # where <ValidTmpDir> can be for example /tmp or some other temporary directory on the local cluster node`
-
+    * `export MCR_CACHE_ROOT=$TMPDIR   # If $TMPDIR is defined` OR
+    * `export MCR_CACHE_ROOT=<ValidTmpDir> # where <ValidTmpDir> can be for example /tmp or some other temporary directory on the local cluster node`
   * Your submit script must have the path to samtools in your $PATH variable if you are reading in BAM files
   * I also recommend that you set the `$TMP` environment variable to a valid temporary directory with sufficient disk space (incase it isn't already set).
 `export TMP=<ValidTmpDir>`
