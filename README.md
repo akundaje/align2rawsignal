@@ -5,9 +5,11 @@ Wiggler can generate genome-wide signal coverage tracks for ChIP-seq, DNase-seq,
 
 See or for detailed description of method.
 
-*Author*: Anshul Kundaje
-*Email*: akundaje at kundaje dot net
-*Latest Update*: August 2015
+**Author**: Anshul Kundaje
+
+**Email**: akundaje at kundaje dot net
+
+**Latest Update**: August 2015
 
 ##Introduction
 align2rawsignal (aka. WIGGLER .. because it generates wiggle files) reads in a set of tagAlign/BAM files, filters out multi-mapping tags and creates a consolidated genome-wide signal coverage file using various tag-shift and smoothing parameters as well as various normalization schemes
@@ -70,7 +72,7 @@ align2rawsignal/
 ## Installation Instructions
 *NOTE:* These are installation/running instructions for 64-bit LINUX distributions. If you need executables for other platforms please contact Anshul (anshul_at_kundaje_dot_net)
 
-1. MCR Installation
+### 1. MCR Installation
 In order to run the align2rawsignal code and/or any MATLAB compiled code, you will need the MATLAB runtime library. Please only use the MCR version referenced in this README. This version of the executable was compiled using MCR V7.14 which is equivalent to R2010b release. You can download the MCR here http://www.broadinstitute.org/~anshul/softwareRepo/MCR2010b.bin
 
 If you haven't installed the MCR, you MUST do that using this command
@@ -93,7 +95,7 @@ If you want to uninstall the MCR , follow this procedure:
 3. Run the `uninstaller.bin` program.
 `./uninstaller.bin -console`
 
-2. Setting paths
+### 2. Setting paths
 You need to set the following environment variables for the compiled MATLAB code to run correctly. These environment variables MUST be set before calling the align2rawsignal executable or any other MATLAB compiled code.
 
 You can add the following lines to your `.bashrc` or `.cshrc` file if you want to avoid settings these variables everytime you want to run the code
@@ -125,7 +127,7 @@ setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${MCRROOT}/sys/java/jre/glnxa64/jre/li
 setenv XAPPLRESDIR ${MCRROOT}/X11/app-defaults
 ```
 
-3. Samtools
+### 3. Samtools
 If you are working with BAM input files then the samTools executable is required to be in your system PATH. You can get samtools from here http://samtools.sourceforge.net/
 
 You will need to add samtools to your path so that align2rawsignal can call samtools.
@@ -134,7 +136,7 @@ You will need to add samtools to your path so that align2rawsignal can call samt
 
 If you are running align2rawsignal on a cluster make sure the cluster nodes have this directory in their $PATH. You can set it in your submit script.
 
-4. Now you can run the align2rawsignal executable
+### 4. Now you can run the align2rawsignal executable
 For options/help simply type
 
 `./align2rawsignal`
@@ -149,7 +151,7 @@ export $PATH=<directory_containing_align2rawsignal>/bin:$PATH # add the /bin dir
 align2rawsignal # call align2rawsignal
 ```
 
-5. Running instructions on a cluster
+### 5. Running instructions on a cluster
 
   * Make sure the shell you use in your submit script is bash
   `#!/bin/bash`
