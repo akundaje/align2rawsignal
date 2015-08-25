@@ -181,14 +181,16 @@ align2rawsignal # call align2rawsignal
 13. *Chromosome sequence file name prefixes, chromosome mappability file name prefixes and chromosome names in the tagAlign/BAM files MUST match and contain the 'chr' prefix e.g. chr1.fa, chr1.uint8.unique and chr1 in the tagAlign/BAM files. Remove any additional .fa files from the sequence directory that do not have matching .unique files in the mappability directory*
 14. Some valid and invalid usage scenarios for `--v` option.
   * If you dont want any logging then you should not use the `--v` option at all. By default there is no logging.
-```
-VALID: --v=stdout , --v=stderr , --v=<File>
-INVALID: --v , --v=
-```
+    
+    `VALID: --v=stdout , --v=stderr , --v=<File>`
+    
+    `INVALID: --v , --v=`
 15. Some valid and invalid usage scenarios for the -o option
   * By default, the wiggle/bedgraph output goes to stdout. For this you dont need to specify the `-o` option.
   * You can pipe the output to gzip or to some file.
+    
     `VALID: -o=stdout , -o=stderr , -o=<file>`
+     
     `INVALID: -o , -o=`
   * For .mat output you MUST specify an output file i.e. `-o=<file>`
   
@@ -320,11 +322,14 @@ For each replicate
 3. For each position 'i', we computed a weighted sum of read counts in a window of a particular length 'w' centered at 'i'. We use a kernel to compute a weighted sum. By default w is set to 1.5*L. The default tukey kernel has a central window which has weights of 1 and then it tapers to 0 following a cosine curve.The length of the central window (constant '1' weights) is approximately set to the fragment length 'L' and the total width of the kernel 'w' should be generally set to the fragment size based on size selection or the estimated fragment length. Basically, this procedure is equivalent to a smooth tag extension of 'w'.
 4. You need to provide a mappability track that marks each position 'i' as 1 (uniquely mappable) and 0 (not uniquely mappable). This track is dependent on read length. We compute a local cumulative mappability for each position 'i' using the same strand shift and tukey kernel window procedure as for read counts. This gives us the effective number of positions in the local kernel window that can potentially contribute read counts based on mappability. Lets call this m(i)
 5. We compute the expected cumulative read counts at each position 'i' if reads were all mapped reads were uniformly distributed along the genome at mappable locations as
-```
-= m(i) X t / g
-     where t is the total number of mapped reads in that replicate
-     where g is the total mappable genome size over both strands
-```
+   
+   ```
+    = m(i) X t / g
+    
+           where t is the total number of mapped reads in that replicate
+           
+           where g is the total mappable genome size over both strands
+   ```
 6. We add cumulative read counts from all replicates at each position 'i' = R(i)
 7. We add expected cumulative read counts from all replicates at each position 'i' = E(i)
 8. Normalized signal (default n=5) at position 'i' = R(i) / E(i)
