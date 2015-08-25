@@ -336,6 +336,7 @@ For each replicate
 9. Positions that have E(i) < 25% max(E(i)) are filtered out as missing/unreliable data points due to very low local mappability and hence unreliable signal. These positions 'i' are not present in the bedgraphs. All other positions are listed with a signal value. Hence a position 'i' with signal value 0 refers to a reliable mappable location but with no reads mapping to it (compared to missing/unreliable data).
 
 Effectively, the signal is normalized for
+
 1. differences in total number of mapped reads
 2. different fragment lengths/smoothing
 3. number of replicates
