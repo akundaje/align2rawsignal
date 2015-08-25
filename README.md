@@ -169,7 +169,7 @@ align2rawsignal # call align2rawsignal
 1. You should have sufficient disk space. Each signal file can range from 500 MB to several gigabytes (uncompressed)
 2. You will need atleast 2GB of memory. The more the memory the faster the code runs. You can set the memory usage as a parameter to the program.
 3. Most of the running time is spent outputing the signal bedGraph or wiggle files.
-4. *BedGraph output is typically faster and more condensed than wiggle files and easier and faster to convert to bigwigs.*
+4. **BedGraph output is typically faster and more condensed than wiggle files and easier and faster to convert to bigwigs.**
 5. A run takes about 20 mins for 2 or 3 tagAlign/BAM replicate files corresponding to a typical transcription factor ChIP-seq experiment
 6. A run takes about 30-40 mins for 3 very large tagAlign/BAM replicate files corresponding to DNAse-seq experiments.
 7. If you run the code with the `--output-max-tags` option, it takes longer. This is because it has to output another massive bedgraph file.
@@ -178,7 +178,7 @@ align2rawsignal # call align2rawsignal
 10. If you are outputing the signal file to stdout, then you will not see output immediately since the code has to read in the data and filter the reads and then start calculating the output signal. Use the `--v=<logfile>` option to see what the code is upto.
 11. The left to right order of the tagAlign file names and the extension length parameters MUST match ie. the leftmost extension length parameter is assumed to match the leftmost tagAlign file name
 12. If you are reading in BAM files, samtools is required.
-13. *Chromosome sequence file name prefixes, chromosome mappability file name prefixes and chromosome names in the tagAlign/BAM files MUST match and contain the 'chr' prefix e.g. chr1.fa, chr1.uint8.unique and chr1 in the tagAlign/BAM files. Remove any additional .fa files from the sequence directory that do not have matching .unique files in the mappability directory*
+13. **Chromosome sequence file name prefixes, chromosome mappability file name prefixes and chromosome names in the tagAlign/BAM files MUST match and contain the 'chr' prefix e.g. chr1.fa, chr1.uint8.unique and chr1 in the tagAlign/BAM files. Remove any additional .fa files from the sequence directory that do not have matching .unique files in the mappability directory**
 14. Some valid and invalid usage scenarios for `--v` option.
   * If you dont want any logging then you should not use the `--v` option at all. By default there is no logging.
     
