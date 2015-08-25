@@ -310,7 +310,7 @@ Default: 2
 ## Brief Description of method
 The method can combine and jointly normalize data from multiple datasets/replicates of the same experiment
 
-1. You must estimate the predominant fragment length (2*tagShift) for each replicate separately. We tend to use strand cross-correlation analysis to estimate the tag shift. You set -l=2*tagShift or fragment-length
+1. You must estimate the predominant fragment length (2\*tagShift) for each replicate separately. We tend to use strand cross-correlation analysis to estimate the tag shift. You set -l=2\*tagShift or fragment-length
   * For ChIP-seq/MNase-seq l=fragment length
   * For DNase-seq, l=1 (no tag shift)
 2. All multimapping reads are removed from each replicate BAM/tagAlign file
@@ -319,7 +319,7 @@ For each replicate
 
 1. Read starts are shifted in the 5' to 3' direction by L/2 (strand specific)
 2. We count shifted read-start counts at each position 'i' (adding both strands)
-3. For each position 'i', we computed a weighted sum of read counts in a window of a particular length 'w' centered at 'i'. We use a kernel to compute a weighted sum. By default w is set to 1.5*L. The default tukey kernel has a central window which has weights of 1 and then it tapers to 0 following a cosine curve.The length of the central window (constant '1' weights) is approximately set to the fragment length 'L' and the total width of the kernel 'w' should be generally set to the fragment size based on size selection or the estimated fragment length. Basically, this procedure is equivalent to a smooth tag extension of 'w'.
+3. For each position 'i', we computed a weighted sum of read counts in a window of a particular length 'w' centered at 'i'. We use a kernel to compute a weighted sum. By default w is set to 1.5\*L. The default tukey kernel has a central window which has weights of 1 and then it tapers to 0 following a cosine curve.The length of the central window (constant '1' weights) is approximately set to the fragment length 'L' and the total width of the kernel 'w' should be generally set to the fragment size based on size selection or the estimated fragment length. Basically, this procedure is equivalent to a smooth tag extension of 'w'.
 4. You need to provide a mappability track that marks each position 'i' as 1 (uniquely mappable) and 0 (not uniquely mappable). This track is dependent on read length. We compute a local cumulative mappability for each position 'i' using the same strand shift and tukey kernel window procedure as for read counts. This gives us the effective number of positions in the local kernel window that can potentially contribute read counts based on mappability. Lets call this m(i)
 5. We compute the expected cumulative read counts at each position 'i' if reads were all mapped reads were uniformly distributed along the genome at mappable locations as
    
