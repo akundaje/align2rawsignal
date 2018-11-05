@@ -73,7 +73,7 @@ align2rawsignal/
 **NOTE:** These are installation/running instructions for 64-bit LINUX distributions. If you need executables for other platforms please contact Anshul (anshul_at_kundaje_dot_net)
 
 ### 1. MCR Installation
-In order to run the align2rawsignal code and/or any MATLAB compiled code, you will need the MATLAB runtime library. Please only use the MCR version referenced in this README. This version of the executable was compiled using MCR V7.14 which is equivalent to R2010b release. You can download the MCR here http://www.broadinstitute.org/~anshul/softwareRepo/MCR2010b.bin
+In order to run the align2rawsignal code and/or any MATLAB compiled code, you will need the MATLAB runtime library. Please only use the MCR version referenced in this README. This version of the executable was compiled using MCR V7.14 which is equivalent to R2010b release. You can download the MCR here http://mitra.stanford.edu/kundaje/software/MCR2010b.bin
 
 If you haven't installed the MCR, you MUST do that using this command
 
